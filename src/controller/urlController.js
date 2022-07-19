@@ -9,9 +9,7 @@ const createUrl = async function (req, res) {
     const urlCode = shortid.generate()
     const shortUrl = str + urlCode 
     const savedData = await urlModel.create({longUrl, shortUrl, urlCode})
-   let obj= {longUrl: savedData.longUrl,
-    shortUrl: savedData.shortUrl,
-    urlCode: savedData.urlCode}
+    let obj= {longUrl: savedData.longUrl,shortUrl: savedData.shortUrl,urlCode: savedData.urlCode}
     return res.status(201).send({ status: true, message: "success", data: obj })
 
   }
@@ -39,4 +37,4 @@ const getUrl = async function (req, res) {
     }
   }
 
-  module.exports.getUrl = getUrl
+ module.exports.getUrl = getUrl
